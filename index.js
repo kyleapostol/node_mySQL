@@ -17,9 +17,6 @@ app.use('/api/products', product);
 app.use('/api/cart', postCart);
 app.use('/api/cart', deleteCart);
 
-app.get('/', (req,res) => {
-    res.send("Welcome to Node.js")
-})
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
