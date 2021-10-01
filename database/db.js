@@ -9,10 +9,18 @@ const db = mysql.createConnection({
 });
 
 const dbConnect = () => {
-    db.connect((err) => {
-        if(err) throw err
+    db.connect(err => {
+        if(err) {
+            console.log('error when connecting to database:', err);
+            res.status(503);
+            res.send("Internal Server Error");
+            setTimeout(dbConnect, 2000);
+        }
+        
         console.log("Connected to mySQL")
     });
+
+
 }
 
 module.exports = {
